@@ -50,6 +50,8 @@
 
 	<ItemGroup>
 		<PackageReference Include="Akka" Version="1.5.4" />
+		<PackageReference Include="Akka.Hosting" Version="1.5.4.1" />
+		<PackageReference Include="Akka.Remote.Hosting" Version="1.5.4.1" />
 		<PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="7.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>

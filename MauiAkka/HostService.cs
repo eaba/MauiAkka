@@ -7,7 +7,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace MauiAkka
 {
-    public sealed class HostService : IHostedService
+    public sealed class HostService : IHostedService, ISendMessage
     {
         private ActorSystem _system;  
         private readonly IConfiguration _configuration;
@@ -21,7 +21,7 @@ namespace MauiAkka
             _applicationLifetime = applicationLifetime;
             _configuration = configuration; 
         }
-        public async Task SendMessage(Send send)
+        public async Task Message(Send send)
         {
             ActorRef.Tell(send);
             await Task.CompletedTask;
@@ -48,8 +48,7 @@ namespace MauiAkka
                 {
                     exit-clr = on
                 }
-            }"
-            );
+            }");
 
             // start ActorSystem
             _system = ActorSystem.Create("maui");

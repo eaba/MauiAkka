@@ -10,7 +10,10 @@ namespace MauiAkka
         public Receive() 
         {
             _messages = new List<string>();
-            Receive<Send>(s => _messages.Add(s.Message));
+            Receive<Send>(s =>
+            {
+                _messages.Add(s.Message);
+            });
             Receive<SendGet>(s => 
             { 
                 if(_messages.Count > 0)
